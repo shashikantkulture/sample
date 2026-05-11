@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium luxury home decor and antiques inspired by world-class craftsmanship.">
+    <title>Aurum & Artefact | Luxury Home Decor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">A&A</a>
+            <div class="nav-links">
+                <a href="index.html#collections">Collections</a>
+                <a href="index.html#catalog">Catalog</a>
+                <a href="about.html">Heritage</a>
+                <a href="index.html#gallery">Gallery</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </button>
+                <button class="btn-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="hero-bg parallax-bg" style="background-image: url('assets/images/hero.png');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-up">
+            <p class="hero-subtitle">The Art of Living</p>
+            <h1 class="hero-title">Timeless Elegance<br>Curated for You</h1>
+            <a href="index.html#collections" class="btn-primary">Explore Collection</a>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="editorial-story section-padding" id="heritage">
+            <div class="container split-layout">
+                <div class="split-content fade-up-scroll">
+                    <h2 class="section-title">A Legacy of<br>Craftsmanship</h2>
+                    <p class="section-text">Every piece in our collection tells a story of heritage, meticulous craftsmanship, and an unwavering commitment to luxury. We travel the globe to source artifacts that bring soul and sophistication to modern spaces.</p>
+                    <a href="about.html" class="btn-link">Discover Our Story <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="split-image parallax-container">
+                    <img src="assets/images/antique.png" alt="Antique Craftsmanship" class="parallax-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="collections section-padding" id="collections">
+            <div class="container">
+                <div class="section-header fade-up-scroll">
+                    <h2 class="section-title">Curated Collections</h2>
+                    <p class="section-subtitle">Discover our hand-picked selection of premium artifacts.</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card fade-up-scroll delay-1">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/antique.png" alt="Bronze Sculpture" class="product-img">
+                            <div class="product-overlay">
+                                <button class="btn-secondary" onclick="window.location.href='product.html'">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Elysian Bronze Vessel</h3>
+                            <p class="product-price">$1,250</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-up-scroll delay-2">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/furniture.png" alt="Luxury Armchair" class="product-img">
+                            <div class="product-overlay">
+                                <button class="btn-secondary" onclick="window.location.href='product.html'">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Aura Bouclé Armchair</h3>
+                            <p class="product-price">$3,800</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card fade-up-scroll delay-3">
+                        <div class="product-img-wrapper">
+                            <div class="img-placeholder" style="background-color: #1c1c1c;">
+                                <span style="color: #f7e7ce; font-family: 'Cinzel', serif;">Opulence Mirror</span>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="btn-secondary" onclick="window.location.href='product.html'">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Venetian Wall Mirror</h3>
+                            <p class="product-price">$2,100</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="center-btn-wrapper fade-up-scroll">
+                    <a href="#" class="btn-outline">View All Pieces</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section section-padding" id="catalog">
+            <div class="container">
+                <div class="section-header fade-up-scroll">
+                    <h2 class="section-title">The Grand Catalog</h2>
+                    <p class="section-subtitle">Explore our complete collection of curated masterpieces with an interactive 3D view.</p>
+                </div>
+                
+                <div class="catalog-grid">
+                    <div class="catalog-item fade-up-scroll delay-1" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <div class="catalog-img-wrapper">
+                            <div class="img-placeholder" style="background-color: #1a1a1a;">
+                                <span style="color: #f7e7ce; font-family: 'Cinzel', serif;">Imperial Vase</span>
+                            </div>
+                        </div>
+                        <div class="catalog-info">
+                            <h3 class="catalog-title">Ming Dynasty Inspired Vase</h3>
+                            <p class="catalog-desc">Hand-painted porcelain with 24k gold detailing.</p>
+                            <p class="catalog-price">$4,500</p>
+                        </div>
+                    </div>
+                    
+                    <div class="catalog-item fade-up-scroll delay-2" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <div class="catalog-img-wrapper">
+                            <div class="img-placeholder" style="background-color: #222;">
+                                <span style="color: #f7e7ce; font-family: 'Cinzel', serif;">Velvet Chandelier</span>
+                            </div>
+                        </div>
+                        <div class="catalog-info">
+                            <h3 class="catalog-title">Crystal Cascade Chandelier</h3>
+                            <p class="catalog-desc">Tiered crystal elements with brushed brass frame.</p>
+                            <p class="catalog-price">$8,200</p>
+                        </div>
+                    </div>
+
+                    <div class="catalog-item fade-up-scroll delay-3" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5">
+                        <div class="catalog-img-wrapper">
+                            <div class="img-placeholder" style="background-color: #151515;">
+                                <span style="color: #f7e7ce; font-family: 'Cinzel', serif;">Obsidian Table</span>
+                            </div>
+                        </div>
+                        <div class="catalog-info">
+                            <h3 class="catalog-title">Monolith Coffee Table</h3>
+                            <p class="catalog-desc">Carved from a single piece of black obsidian.</p>
+                            <p class="catalog-price">$12,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section section-padding">
+            <div class="container text-center fade-up-scroll">
+                <blockquote class="luxury-quote">
+                    "True luxury is not just what you see, but what you feel when you enter a space that reflects your soul."
+                </blockquote>
+                <p class="quote-author">— The A&A Manifesto</p>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-grid">
+                <div class="gallery-item item-1 fade-up-scroll">
+                    <img src="assets/images/hero.png" alt="Gallery Interior">
+                </div>
+                <div class="gallery-item item-2 fade-up-scroll delay-1">
+                    <img src="assets/images/antique.png" alt="Gallery Detail">
+                </div>
+                <div class="gallery-item item-3 fade-up-scroll delay-2">
+                    <img src="assets/images/furniture.png" alt="Gallery Furniture">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2 class="brand-logo large">Aurum & Artefact</h2>
+                <p class="footer-desc">Curating the world's finest luxury decor and antiques for the modern connoisseur.</p>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">Explore</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Furniture</a></li>
+                    <li><a href="#">Lighting</a></li>
+                    <li><a href="#">Antiques</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">Assistance</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Care Guide</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4 class="footer-heading">The Inner Circle</h4>
+                <p class="newsletter-desc">Subscribe to receive exclusive access to new collections and editorial insights.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">→</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <div class="footer-credit">
+                <p>This premium site is a sample created by <span style="color: var(--clr-champagne);">Shashikant Singh</span>. We can make this more beautiful, exactly as you imagine, or even better.</p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Aurum & Artefact. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
