@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-dark: #0c0a09;
+  --gold-primary: #c5a059;
+  --ivory-primary: #f7f4ed;
+}
+
+/* =========================================================================
+   PERFECT GLOBAL RESET & ZERO SCROLLBARS
+   ========================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar,
+::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  display: none !important;
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
+}
+
+html {
+  background-color: #0b0a09;
+  color: #f7f4ed;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+body {
+  background-color: #0b0a09;
+  color: #ede8df;
+  overflow-x: hidden;
+  min-height: 100vh;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+::selection {
+  background: #c5a059;
+  color: #0c0a09;
+}
+
+/* Luxury Typography Utilities */
+.font-serif-lux {
+  font-family: var(--font-serif);
+}
+
+.tracking-widest-lux {
+  letter-spacing: 0.25em;
+}
+
+.tracking-super {
+  letter-spacing: 0.4em;
+}
+
+/* Gold Gradient Accents */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #f5e4bd 0%, #c5a059 50%, #99732d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.08);
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(197, 160, 89, 0.7);
+  box-shadow: 0 0 25px rgba(197, 160, 89, 0.2);
+}
+
+/* Smooth glass backdrop */
+.glass-panel {
+  background: rgba(18, 16, 14, 0.85);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.glass-panel-subtle {
+  background: rgba(22, 19, 17, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Premium Light Beam Sweep on Button Hover */
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+}
+
+.shimmer-button:hover::after {
+  left: 150%;
+}
+
+/* Hide default cursor on desktop when custom cursor active */
+@media (pointer: fine) {
+  body.has-custom-cursor {
+    cursor: none;
+  }
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor input,
+  body.has-custom-cursor select {
+    cursor: none;
+  }
+}
