@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingBag, Heart, Box, ArrowRight } from 'lucide-react';
+import { X, ShoppingBag, Heart, Box, ArrowRight, ZoomIn } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useAppStore } from '@/lib/store';
@@ -10,12 +10,34 @@ import { formatPrice } from '@/lib/utils';
 import MagneticButton from '@/components/ui/MagneticButton';
 
 export default function QuickViewModal() {
-  const { quickViewProduct, closeQuickView, addToCart, toggleWishlist, isInWishlist } =
+  const { quickViewProduct, closeQuickView, addToCart, toggleWishlist, isInWishlist, setCursor, resetCursor } =
     useAppStore();
+
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [transformOrigin, setTransformOrigin] = useState({ x: 50, y: 50 });
+  const imgRef = useRef<HTMLDivElement>(null);
 
   if (!quickViewProduct) return null;
 
   const isLiked = isInWishlist(quickViewProduct.id);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!imgRef.current) return;
+    const rect = imgRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+    setTransformOrigin({ x, y });
+  };
+
+  const handleToggleZoom = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isZoomed && imgRef.current) {
+      const rect = imgRef.current.getBoundingClientRect();
+      const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+      const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+      setTransformOrigin({ x, y });
+    }
+    setIsZoomed((z) => !z);
+  };
 
   return (
     <AnimatePresence>
@@ -48,14 +70,46 @@ export default function QuickViewModal() {
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Product Image Frame */}
-            <div className="relative aspect-square md:aspect-auto md:h-full min-h-[300px] bg-[#1a1714]">
-              <Image
-                src={quickViewProduct.images[0]}
-                alt={quickViewProduct.name}
-                fill
-                className="object-cover"
+            <div
+              ref={imgRef}
+              onClick={handleToggleZoom}
+              onMouseMove={handleMouseMove}
+              className={`relative aspect-square md:aspect-auto md:h-full min-h-[300px] bg-[#1a1714] overflow-hidden select-none transition-colors ${
+                isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
+              }`}
+            >
+              <div
+                className="relative w-full h-full will-change-transform"
+                style={{
+                  transform: isZoomed ? 'scale(2.2)' : 'scale(1)',
+                  transformOrigin: `${transformOrigin.x}% ${transformOrigin.y}%`,
+                  transition: isZoomed
+                    ? 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform-origin 0.08s ease-out'
+                    : 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                <Image
+                  src={quickViewProduct.images[0]}
+                  alt={quickViewProduct.name}
+                  fill
+                  className="object-cover select-none pointer-events-none"
+                />
+              </div>
+
+              {/* Ambient overlay (fades when zoomed) */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-[#12100e]/80 via-transparent to-transparent pointer-events-none transition-opacity duration-300 ${
+                  isZoomed ? 'opacity-0' : 'opacity-100'
+                }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#12100e]/80 via-transparent to-transparent" />
+
+              {/* Subtle Zoom Pill */}
+              <div className="absolute top-4 left-4 z-10 pointer-events-none">
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[11px] text-[#dfba73]">
+                  <ZoomIn className="w-3 h-3 text-[#c5a059]" />
+                  <span>{isZoomed ? '2.2x Zoom Active (Click to reset)' : 'Click to zoom'}</span>
+                </div>
+              </div>
             </div>
 
             {/* Product Details */}

@@ -24,6 +24,7 @@ import { useAppStore } from '@/lib/store';
 import ProductViewer3D from '@/components/3d/ProductViewer3D';
 import MagneticButton from '@/components/ui/MagneticButton';
 import ProductCard from '@/components/shop/ProductCard';
+import ProductImageZoom from '@/components/shop/ProductImageZoom';
 
 interface ProductDetailClientProps {
   product: Product;
@@ -112,26 +113,23 @@ export default function ProductDetailClient({
             </div>
 
             {/* Stage Viewport */}
-            <div className="relative w-full aspect-[4/4] sm:aspect-[4/3] rounded-3xl overflow-hidden bg-[#12100e] border border-[#c5a059]/25 shadow-2xl">
-              {activeTab === '3d' ? (
+            {activeTab === '3d' ? (
+              <div className="relative w-full aspect-[4/4] sm:aspect-[4/3] rounded-3xl overflow-hidden bg-[#12100e] border border-[#c5a059]/25 shadow-2xl">
                 <ProductViewer3D
                   modelType={product.model3D?.type || 'vase'}
                   color={product.model3D?.color || '#8c6d46'}
                   className="h-full w-full"
                 />
-              ) : (
-                <div className="relative w-full h-full">
-                  <Image
-                    src={product.images[selectedImageIndex] || product.images[0]}
-                    alt={product.name}
-                    fill
-                    priority
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e0c0a]/60 via-transparent to-transparent pointer-events-none" />
-                </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <ProductImageZoom
+                images={product.images}
+                selectedIndex={selectedImageIndex}
+                onSelectIndex={setSelectedImageIndex}
+                productName={product.name}
+                category={product.category}
+              />
+            )}
 
             {/* Thumbnail Selection Strip */}
             <div className="flex gap-3 overflow-x-auto pb-2">
