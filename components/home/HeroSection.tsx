@@ -14,7 +14,7 @@ const slides = [
     title: 'Antique Pieces\nfor Modern Spaces',
     description:
       'Curated collectibles and handcrafted decor that bring heritage, elegance and soul to your home.',
-    image: '/images/hero-horse.jpg',
+    image: '/images/hero-horse.png',
     modelLink: '/shop/handcrafted-heritage-vase',
     number: '01',
     objectName: 'Archival Bronze Stallion, Vienna',

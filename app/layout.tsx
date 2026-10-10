@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'LUXIGNIA',
     images: [
       {
-        url: '/images/hero-horse.jpg',
+        url: '/images/hero-horse.png',
         width: 1200,
         height: 630,
         alt: 'LUXIGNIA Antique Collection',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'LUXIGNIA — Luxury Antique Home Decor',
     description: 'Interactive 3D digital showroom for rare antiquities and handcrafted bronze decor.',
-    images: ['/images/hero-horse.jpg'],
+    images: ['/images/hero-horse.png'],
   },
 };
 

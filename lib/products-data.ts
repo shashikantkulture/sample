@@ -112,7 +112,7 @@ export const PRODUCTS: Product[] = [
     categorySlug: 'sculptures',
     collection: 'Noble Equine',
     images: [
-      '/images/hero-horse.jpg',
+      '/images/hero-horse.png',
       'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=1000&q=80',
     ],
